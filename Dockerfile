@@ -151,33 +151,3 @@ RUN wget -O /usr/local/bin/php-fpm-healthcheck \
  && adduser --uid 100 -g 101 -S nginx
 
 EXPOSE 9000
-
-
-
-
-
-
-
-
-
-
-
-"""FROM nginx:stable-alpine as humhub_nginx
-
-ENV NGINX_CLIENT_MAX_BODY_SIZE=10m \
-    NGINX_KEEPALIVE_TIMEOUT=65 \
-    NGINX_UPSTREAM=humhub:9000
-
-COPY nginx/ /
-COPY --from=builder --chown=nginx:nginx /usr/src/humhub/ /var/www/localhost/htdocs/
-
-FROM base as humhub_allinone
-
-RUN apk add --no-cache nginx
-
-RUN chown -R nginx:nginx /var/lib/nginx/
-
-COPY nginx/ /
-
-EXPOSE 80
-"""
