@@ -152,7 +152,17 @@ RUN wget -O /usr/local/bin/php-fpm-healthcheck \
 
 EXPOSE 9000
 
-FROM nginx:stable-alpine as humhub_nginx
+
+
+
+
+
+
+
+
+
+
+"""FROM nginx:stable-alpine as humhub_nginx
 
 ENV NGINX_CLIENT_MAX_BODY_SIZE=10m \
     NGINX_KEEPALIVE_TIMEOUT=65 \
@@ -170,3 +180,4 @@ RUN chown -R nginx:nginx /var/lib/nginx/
 COPY nginx/ /
 
 EXPOSE 80
+"""
