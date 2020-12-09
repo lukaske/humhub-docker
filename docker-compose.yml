@@ -10,7 +10,7 @@ services:
   nginx:
     image: docker.io/mriedmann/humhub:stable-nginx
     ports:
-      - "8080:80"
+      - "80:80"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/ping"]
       interval: 30s
