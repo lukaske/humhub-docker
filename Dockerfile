@@ -1,4 +1,5 @@
-ARG HUMHUB_VERSION=1.6.2
+ARG HUMHUB_VERSION
+ARG VCS_REF
 
 FROM composer:1.10.13 as builder-composer
 
@@ -64,6 +65,16 @@ RUN rm -rf ./node_modules
 FROM alpine:3.12.1 as base
 
 ARG HUMHUB_VERSION
+LABEL name="HumHub" version=${HUMHUB_VERSION} variant="base" \
+      org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.name="HumHub" \
+      org.label-schema.description="HumHub is a feature rich and highly flexible OpenSource Social Network Kit written in PHP" \
+      org.label-schema.url="https://www.humhub.com/" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-url="https://github.com/mriedmann/humhub-docker" \
+      org.label-schema.vendor="HumHub GmbH" \
+      org.label-schema.version=${HUMHUB_VERSION} \
+      org.label-schema.schema-version="1.0"
 
 RUN apk add --no-cache \
     curl \
@@ -139,6 +150,8 @@ ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["supervisord", "-n", "-c", "/etc/supervisord.conf"]
 
 FROM base as humhub_phponly
+
+LABEL variant="phponly"
 
 RUN apk add --no-cache fcgi
 
