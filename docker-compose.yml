@@ -35,15 +35,15 @@ services:
       HUMHUB_PROTO: 'https'
       HUMHUB_HOST: 'localhost'
       # Mailer install setup
-      HUMHUB_MAILER_SYSTEM_EMAIL_ADDRESS: 'noreply@example.com'
-      HUMHUB_MAILER_SYSTEM_EMAIL_NAME: 'HumHub'
+      HUMHUB_MAILER_SYSTEM_EMAIL_ADDRESS: 'fesival@kuzek.si'
+      HUMHUB_MAILER_SYSTEM_EMAIL_NAME: 'Kuzkov Festival'
       HUMHUB_MAILER_TRANSPORT_TYPE: 'smtp'
       HUMHUB_MAILER_HOSTNAME: 'mailer'
       HUMHUB_MAILER_PORT: 1025
       #HUMHUB_MAILER_USERNAME:
       #HUMHUB_MAILER_PASSWORD:
       #HUMHUB_MAILER_ENCRYPTION:
-      HUMHUB_MAILER_ALLOW_SELF_SIGNED_CERTS: 0
+      HUMHUB_MAILER_ALLOW_SELF_SIGNED_CERTS: 1
       # Cache Config
       HUMHUB_CACHE_EXPIRE_TIME: 3600
       HUMHUB_CACHE_CLASS: yii\redis\Cache
@@ -74,6 +74,8 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+    volumes:
+      - /opt/mysql_data:/var/lib/mysql
   mailer:
     image: sj26/mailcatcher:latest
     restart: always
