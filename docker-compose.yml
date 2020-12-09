@@ -15,6 +15,11 @@ services:
       - ./data/nginx:/etc/nginx/conf.d
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
+      - "uploads:/var/www/localhost/htdocs/uploads"
+      - "assets:/var/www/localhost/htdocs/assets"
+      - "modules:/var/www/localhost/htdocs/protected/modules"
+      - "themes:/var/www/localhost/htdocs/themes"
+
     ports:
       - "80:80"
       - "443:443"
