@@ -10,7 +10,7 @@ version: '3.1'
 services:
   nginx:
     image: docker.io/mriedmann/humhub:stable-nginx
-    restart: unless-stopped
+    #restart: unless-stopped
     volumes:
       - ./data/nginx:/etc/nginx/conf.d
       - ./data/certbot/conf:/etc/letsencrypt
