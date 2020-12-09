@@ -8,7 +8,7 @@
 #          Use at your own risk!
 version: '3.1'
 services:
-  nginx:
+  xnginx:
     image: docker.io/mriedmann/humhub:stable-nginx
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/ping"]
