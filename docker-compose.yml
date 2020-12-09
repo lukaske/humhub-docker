@@ -9,7 +9,7 @@
 version: '3.1'
 services:
   nginx:
-    image: docker.io/mriedmann/humhub:stable-nginx
+    image: nginx:1.15-alpine
     ports:
       - "80:80"
       - "443:443"
