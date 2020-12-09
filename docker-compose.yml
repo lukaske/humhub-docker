@@ -10,7 +10,7 @@ version: '3.1'
 services:
   nginx:
     image: docker.io/mriedmann/humhub:stable-nginx
-    #restart: unless-stopped
+    restart: unless-stopped
     volumes:
       - ./data/nginx:/etc/nginx/conf.d
       - ./data/certbot/conf:/etc/letsencrypt
@@ -19,6 +19,11 @@ services:
       - "assets:/var/www/localhost/htdocs/assets"
       - "modules:/var/www/localhost/htdocs/protected/modules"
       - "themes:/var/www/localhost/htdocs/themes"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/ping"]
+      interval: 30s
+      timeout: 100s
+      retries: 3
 
     ports:
       - "80:80"
