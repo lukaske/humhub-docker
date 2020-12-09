@@ -18,7 +18,7 @@ services:
       timeout: 10s
       retries: 3
     volumes:
-      - ./data/nginx:/etc/nginx/conf.d
+      - ./nginx.conf:/etc/nginx/nginx.conf
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
       - "uploads:/var/www/localhost/htdocs/uploads"
