@@ -11,12 +11,16 @@ services:
     image: docker.io/mriedmann/humhub:stable-nginx
     ports:
       - "80:80"
+      - "443:443"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/ping"]
       interval: 30s
       timeout: 10s
       retries: 3
     volumes:
+      - ./data/nginx:/etc/nginx/conf.d
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
       - "uploads:/var/www/localhost/htdocs/uploads"
       - "assets:/var/www/localhost/htdocs/assets"
       - "modules:/var/www/localhost/htdocs/protected/modules"
