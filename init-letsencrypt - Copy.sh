@@ -5,7 +5,7 @@ if ! [ -x "$(command -v /usr/local/bin/docker-compose)" ]; then
   exit 1
 fi
 
-domains=(fest.kuzek.si)
+domains=(festival.kuzek.si www.festival.kuzek.si)
 rsa_key_size=4096
 data_path="./data/certbot"
 email="luka@jabuk.xyz" # Adding a valid address is strongly recommended

@@ -25,12 +25,6 @@ services:
       - "assets:/var/www/localhost/htdocs/assets"
       - "modules:/var/www/localhost/htdocs/protected/modules"
       - "themes:/var/www/localhost/htdocs/themes"
-  certbot:
-    image: certbot/certbot
-    restart: unless-stopped
-    volumes:
-      - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/certbot
   humhub:
     image: docker.io/mriedmann/humhub:stable-phponly
     expose:
