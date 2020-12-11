@@ -134,7 +134,8 @@ COPY --chown=100:101 humhub/ /var/www/localhost/htdocs/
 RUN mkdir -p /usr/src/humhub/protected/config/ && \
     cp -R /var/www/localhost/htdocs/protected/config/* /usr/src/humhub/protected/config/ && \
     rm -f var/www/localhost/htdocs/protected/config/common.php /usr/src/humhub/protected/config/common.php && \
-    echo "v${HUMHUB_VERSION}" >  /usr/src/humhub/.version
+    echo "v${HUMHUB_VERSION}" >  /usr/src/humhub/.version && \
+    cp -R /usr/src/humhub/themes/* /var/www/localhost/htdocs/themes/
 
 COPY base/ /
 COPY docker-entrypoint.sh /docker-entrypoint.sh
