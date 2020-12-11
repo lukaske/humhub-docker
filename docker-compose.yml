@@ -60,6 +60,10 @@ services:
       HUMHUB_REDIS_HOSTNAME: redis
       HUMHUB_REDIS_PORT: 6379
       HUMHUB_REDIS_PASSWORD: redis_password
+      PHP_POST_MAX_SIZE: '16M'
+      PHP_UPLOAD_MAX_FILESIZE: '16M'
+      PHP_MEMORY_LIMIT: '256M'
+
     volumes:
       - "uploads:/var/www/localhost/htdocs/uploads"
       - "assets:/var/www/localhost/htdocs/assets"
