@@ -37,8 +37,6 @@ services:
     expose:
       - '9000'
     environment:
-      HUMHUB_DB_USER: ${HUMHUB_DB_USER}
-      HUMHUB_DB_PASSWORD: ${HUMHUB_DB_PASSWORD}
       HUMHUB_DB_HOST: 'db'
       HUMHUB_DB_NAME: 'humhub'
       HUMHUB_AUTO_INSTALL: 0
@@ -88,6 +86,8 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+    volumes:
+      - ../sqldata:/var/lib/mysql
   mailer:
     image: sj26/mailcatcher:latest
     restart: always
