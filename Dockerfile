@@ -19,7 +19,6 @@ RUN wget https://festivaldrop.s3.eu-north-1.amazonaws.com/humhub-1.6.tar.gz -q -
     mv humhub-1.6.2 humhub && \
     rm humhub.tar.gz
         
-RUN cp -R /usr/src/humhub/themes/* /var/www/localhost/htdocs/themes/
     
 WORKDIR /usr/src/humhub
 
@@ -164,5 +163,8 @@ RUN wget -O /usr/local/bin/php-fpm-healthcheck \
  && chmod +x /usr/local/bin/php-fpm-healthcheck \
  && addgroup -g 101 -S nginx \
  && adduser --uid 100 -g 101 -S nginx
+
+
+RUN cp -R /usr/src/humhub/themes/* /var/www/localhost/htdocs/themes/
 
 EXPOSE 9000
