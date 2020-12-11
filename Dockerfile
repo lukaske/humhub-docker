@@ -16,7 +16,7 @@ RUN apk add --no-cache \
 WORKDIR /usr/src/
 RUN wget https://festivaldrop.s3.eu-north-1.amazonaws.com/humhub-1.6.tar.gz -q -O humhub.tar.gz && \
     tar xzf humhub.tar.gz && \
-    mv humhub-${HUMHUB_VERSION} humhub && \
+    mv humhub-1.6.2 humhub && \
     rm humhub.tar.gz
     
 WORKDIR /usr/src/humhub
