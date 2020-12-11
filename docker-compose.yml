@@ -40,8 +40,6 @@ services:
       HUMHUB_DB_HOST: 'db'
       HUMHUB_DB_NAME: 'humhub'
       HUMHUB_AUTO_INSTALL: 0
-      HUMHUB_DB_USER: ${HUMHUB_DB_USER}
-      HUMHUB_DB_PASSWORD: ${HUMHUB_DB_PASSWORD}
       # HUMHUB_DEBUG: 1 # you can currently not use debug in prod 
       HUMHUB_PROTO: 'https'
       HUMHUB_HOST: 'localhost'
