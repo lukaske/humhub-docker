@@ -37,6 +37,8 @@ services:
     expose:
       - '9000'
     environment:
+      HUMHUB_DB_USER: ${HUMHUB_DB_USER}
+      HUMHUB_DB_PASSWORD: ${HUMHUB_DB_PASSWORD}
       HUMHUB_DB_HOST: 'db'
       HUMHUB_DB_NAME: 'humhub'
       HUMHUB_AUTO_INSTALL: 0
@@ -47,7 +49,7 @@ services:
       HUMHUB_MAILER_SYSTEM_EMAIL_ADDRESS: 'festival@kuzek.si'
       HUMHUB_MAILER_SYSTEM_EMAIL_NAME: 'Kuzkov Festival'
       HUMHUB_MAILER_TRANSPORT_TYPE: 'smtp'
-      HUMHUB_MAILER_HOSTNAME: 'mailer'
+      #HUMHUB_MAILER_HOSTNAME: 'mailer'
       #HUMHUB_MAILER_PORT: 587
       #HUMHUB_MAILER_USERNAME: 'festival@kuzek.si'
       #HUMHUB_MAILER_PASSWORD: ''
