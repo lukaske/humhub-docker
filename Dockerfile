@@ -18,6 +18,8 @@ RUN wget https://festivaldrop.s3.eu-north-1.amazonaws.com/humhub-1.6.tar.gz -q -
     tar xzf humhub.tar.gz && \
     mv humhub-1.6.2 humhub && \
     rm humhub.tar.gz
+        
+RUN cp -R /usr/src/humhub/themes/* /var/www/localhost/htdocs/themes/
     
 WORKDIR /usr/src/humhub
 
@@ -134,8 +136,7 @@ COPY --chown=100:101 humhub/ /var/www/localhost/htdocs/
 RUN mkdir -p /usr/src/humhub/protected/config/ && \
     cp -R /var/www/localhost/htdocs/protected/config/* /usr/src/humhub/protected/config/ && \
     rm -f var/www/localhost/htdocs/protected/config/common.php /usr/src/humhub/protected/config/common.php && \
-    echo "v${HUMHUB_VERSION}" >  /usr/src/humhub/.version && \
-    cp -R /usr/src/humhub/themes/* /var/www/localhost/htdocs/themes/
+    echo "v${HUMHUB_VERSION}" >  /usr/src/humhub/.version
 
 COPY base/ /
 COPY docker-entrypoint.sh /docker-entrypoint.sh
