@@ -24,7 +24,7 @@ services:
       - "uploads:/var/www/localhost/htdocs/uploads"
       - "assets:/var/www/localhost/htdocs/assets"
       - "modules:/var/www/localhost/htdocs/protected/modules"
-      - "./themes:/var/www/localhost/htdocs/themes"
+      - "themes:/var/www/localhost/htdocs/themes"
   certbot:
     image: certbot/certbot
     restart: unless-stopped
@@ -67,7 +67,7 @@ services:
       - "uploads:/var/www/localhost/htdocs/uploads"
       - "assets:/var/www/localhost/htdocs/assets"
       - "modules:/var/www/localhost/htdocs/protected/modules"
-      - "./themes:/var/www/localhost/htdocs/themes"
+      - "themes:/var/www/localhost/htdocs/themes"
 #     - "${HUMHUB_VOLUME_CONFIG}:/var/www/localhost/htdocs/protected/config"
     healthcheck:
       test: ["CMD", "php-fpm-healthcheck"]
