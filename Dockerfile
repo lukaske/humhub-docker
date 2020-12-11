@@ -165,6 +165,4 @@ RUN wget -O /usr/local/bin/php-fpm-healthcheck \
  && adduser --uid 100 -g 101 -S nginx
 
 
-RUN cp -R /usr/src/humhub/themes/* /var/www/localhost/htdocs/themes/
-
 EXPOSE 9000

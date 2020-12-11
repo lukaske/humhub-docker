@@ -47,7 +47,7 @@ services:
       HUMHUB_MAILER_SYSTEM_EMAIL_ADDRESS: 'festival@kuzek.si'
       HUMHUB_MAILER_SYSTEM_EMAIL_NAME: 'Kuzkov Festival'
       HUMHUB_MAILER_TRANSPORT_TYPE: 'smtp'
-      HUMHUB_MAILER_HOSTNAME: 'webmail.kuzek.si'
+      HUMHUB_MAILER_HOSTNAME: 'mailer'
       #HUMHUB_MAILER_PORT: 587
       #HUMHUB_MAILER_USERNAME: 'festival@kuzek.si'
       #HUMHUB_MAILER_PASSWORD: ''
