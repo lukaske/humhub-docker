@@ -21,8 +21,6 @@ RUN wget https://festivaldrop.s3.eu-north-1.amazonaws.com/humhub-1.6.tar.gz -q -
         
     
 WORKDIR /usr/src/humhub
-RUN mkdir -R /var/www/localhost/htdocs/themes
-RUN cp -R themes/* /var/www/localhost/htdocs/themes/
 
 COPY --from=builder-composer /usr/bin/composer /usr/bin/composer
 RUN chmod +x /usr/bin/composer
