@@ -31,6 +31,7 @@ services:
     volumes:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
   humhub:
     image: docker.io/mriedmann/humhub:stable-phponly
     expose:
@@ -40,7 +41,7 @@ services:
       HUMHUB_DB_PASSWORD: ${HUMHUB_DB_PASSWORD}
       HUMHUB_DB_HOST: 'db'
       HUMHUB_DB_NAME: 'humhub'
-      HUMHUB_AUTO_INSTALL: 1
+      HUMHUB_AUTO_INSTALL: 0
       # HUMHUB_DEBUG: 1 # you can currently not use debug in prod 
       HUMHUB_PROTO: 'https'
       HUMHUB_HOST: 'localhost'
