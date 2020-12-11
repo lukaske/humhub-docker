@@ -37,6 +37,8 @@ services:
     expose:
       - '9000'
     environment:
+      HUMHUB_DB_USER: ${HUMHUB_DB_USER}
+      HUMHUB_DB_PASSWORD: ${HUMHUB_DB_PASSWORD}
       HUMHUB_DB_HOST: 'db'
       HUMHUB_DB_NAME: 'humhub'
       HUMHUB_AUTO_INSTALL: 0
