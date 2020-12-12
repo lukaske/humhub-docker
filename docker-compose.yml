@@ -61,7 +61,7 @@ services:
       HUMHUB_REDIS_PASSWORD: redis_password
       PHP_POST_MAX_SIZE: '16M'
       PHP_UPLOAD_MAX_FILESIZE: '16M'
-      PHP_MEMORY_LIMIT: '256M'
+      PHP_MEMORY_LIMIT: '1G'
 
     volumes:
       - "uploads:/var/www/localhost/htdocs/uploads"
